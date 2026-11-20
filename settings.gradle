@@ -10,3 +10,11 @@ pluginManagement {
 }
 
 rootProject.name = 'flowtrails'
+
+def targets = providers.gradleProperty('targets').getOrElse('')
+file('versions').eachDir { dir ->
+	if (targets.isEmpty() || targets.split(',').contains(dir.name)) {
+		include dir.name
+		project(":${dir.name}").projectDir = dir
+	}
+}

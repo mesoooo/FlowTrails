@@ -1,75 +1,119 @@
 plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}" apply false
+	id 'net.fabricmc.fabric-loom' version "${loom_version}" apply false
 }
 
-version = project.mod_version
-group = project.maven_group
+def licenseFile = file('LICENSE')
+def commonJava = file('common/src/main/java')
+def commonResources = file('common/src/main/resources')
 
-base {
-	archivesName = project.archives_base_name
-}
+subprojects {
+	def obfuscated = project.property('obfuscated').toBoolean()
+	apply plugin: obfuscated ? 'net.fabricmc.fabric-loom-remap' : 'net.fabricmc.fabric-loom'
 
-repositories {
-	maven {
-		name = 'Terraformers'
-		url = 'https://maven.terraformersmc.com/releases/'
+	def mcLabel = project.property('mc_label').toString()
+	def javaVersion = project.property('java_version').toInteger()
+	def modVersion = "${project.mod_version}+${mcLabel}".toString()
+
+	version = "${project.mod_version}-mc${mcLabel}".toString()
+	group = project.maven_group
+
+	base {
+		archivesName = project.archives_base_name
 	}
-}
 
-loom {
-	runs {
-		client {
-			programArgs "--username", "FlowDev"
+	repositories {
+		maven {
+			name = 'Terraformers'
+			url = 'https://maven.terraformersmc.com/releases/'
 		}
 	}
-}
 
-dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	sourceSets {
+		main {
+			java.srcDir commonJava
+			resources.srcDir commonResources
+		}
+	}
 
-	modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
-	modLocalRuntime "com.terraformersmc:modmenu:${project.modmenu_version}"
-}
+	loom {
+		runs {
+			client {
+				programArgs "--username", "FlowDev"
+			}
+		}
+	}
 
-processResources {
+	dependencies {
+		minecraft "com.mojang:minecraft:${project.minecraft_version}"
+		if (obfuscated) {
+			mappings loom.officialMojangMappings()
+			modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+			modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+			modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+		} else {
+			implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+			implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+			compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+		}
+	}
+
 	def props = [
-		version  : project.version,
-		minecraft: project.minecraft_version,
-		loader   : project.loader_version
+		version : modVersion,
+		loader  : project.loader_min,
+		mcRange : project.property('mc_range').toString(),
+		java    : javaVersion.toString()
 	]
-	inputs.properties props
 
-	filesMatching("fabric.mod.json") {
-		expand props
+	processResources {
+		inputs.properties props
+		filesMatching("fabric.mod.json") {
+			expand props
+		}
+	}
+
+	jar {
+		from(licenseFile) {
+			rename { "LICENSE_FlowTrails" }
+		}
+		manifest {
+			attributes(
+				"Implementation-Title": "FlowTrails",
+				"Implementation-Version": modVersion,
+				"Implementation-Vendor": "mesdev",
+				"Created-By": "mesdev"
+			)
+		}
+	}
+
+	def classpathOut = layout.buildDirectory.file('classpath.txt')
+	def compileClasspath = sourceSets.main.compileClasspath
+	tasks.register('dumpClasspath') {
+		doLast {
+			def out = classpathOut.get().asFile
+			out.parentFile.mkdirs()
+			out.text = compileClasspath.asPath
+		}
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+		it.options.release = javaVersion
+		it.options.encoding = 'UTF-8'
+	}
+
+	java {
+		sourceCompatibility = JavaVersion.toVersion(javaVersion)
+		targetCompatibility = JavaVersion.toVersion(javaVersion)
 	}
 }
 
-def licenseName = "LICENSE_${project.archives_base_name}"
-def modVersion = project.version.toString()
-
-jar {
-	from("LICENSE") {
-		rename { licenseName }
+tasks.register('collectJars', Copy) {
+	group = 'build'
+	description = 'Builds every version and copies the jars into build/libs.'
+	subprojects.each { p ->
+		def task = p.tasks.findByName('remapJar') ?: p.tasks.named('jar').get()
+		dependsOn task
+		from task
 	}
-	manifest {
-		attributes(
-			"Implementation-Title": "FlowTrails",
-			"Implementation-Version": modVersion,
-			"Implementation-Vendor": "mesdev",
-			"Created-By": "mesdev"
-		)
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
-	it.options.encoding = 'UTF-8'
-}
-
-java {
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	into layout.buildDirectory.dir('libs')
 }
