@@ -17,22 +17,22 @@ Client-side only, so it works on any server.
 
 | What You Have | What to get                                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------------------|
-| 26.2          | [FlowTrails-1.0.0-mc26.2.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc26.2.jar) *recommended |
-| 26.1.2        | [FlowTrails-1.0.0-mc26.1-26.1.2.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc26.1-26.1.2.jar) |
-| 26.1.1        | [FlowTrails-1.0.0-mc26.1-26.1.2.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc26.1-26.1.2.jar) |
-| 26.1          | [FlowTrails-1.0.0-mc26.1-26.1.2.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc26.1-26.1.2.jar) |
-| 1.21.11       | [FlowTrails-1.0.0-mc1.21.11.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.11.jar) |
-| 1.21.10       | [FlowTrails-1.0.0-mc1.21.9-1.21.10.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.9-1.21.10.jar) |
-| 1.21.9        | [FlowTrails-1.0.0-mc1.21.9-1.21.10.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.9-1.21.10.jar) |
-| 1.21.8        | [FlowTrails-1.0.0-mc1.21.6-1.21.8.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.6-1.21.8.jar) |
-| 1.21.7        | [FlowTrails-1.0.0-mc1.21.6-1.21.8.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.6-1.21.8.jar) |
-| 1.21.6        | [FlowTrails-1.0.0-mc1.21.6-1.21.8.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.6-1.21.8.jar) |
-| 1.21.5        | [FlowTrails-1.0.0-mc1.21.5.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.5.jar) |
-| 1.21.4        | [FlowTrails-1.0.0-mc1.21.4.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.4.jar) |
-| 1.21.3        | [FlowTrails-1.0.0-mc1.21.2-1.21.3.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.2-1.21.3.jar) |
-| 1.21.2        | [FlowTrails-1.0.0-mc1.21.2-1.21.3.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21.2-1.21.3.jar) |
-| 1.21.1        | [FlowTrails-1.0.0-mc1.21-1.21.1.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21-1.21.1.jar) |
-| 1.21          | [FlowTrails-1.0.0-mc1.21-1.21.1.jar](https://github.com/mesoooo/FlowTrails/releases/download/v1.0.0/FlowTrails-1.0.0-mc1.21-1.21.1.jar) |
+| 26.2          | [FlowTrails-1.0.0-mc26.2.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc26.2) *recommended |
+| 26.1.2        | [FlowTrails-1.0.0-mc26.1-26.1.2.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc26.1-26.1.2) |
+| 26.1.1        | [FlowTrails-1.0.0-mc26.1-26.1.2.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc26.1-26.1.2) |
+| 26.1          | [FlowTrails-1.0.0-mc26.1-26.1.2.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc26.1-26.1.2) |
+| 1.21.11       | [FlowTrails-1.0.0-mc1.21.11.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.11) |
+| 1.21.10       | [FlowTrails-1.0.0-mc1.21.9-1.21.10.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.9-1.21.10) |
+| 1.21.9        | [FlowTrails-1.0.0-mc1.21.9-1.21.10.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.9-1.21.10) |
+| 1.21.8        | [FlowTrails-1.0.0-mc1.21.6-1.21.8.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.6-1.21.8) |
+| 1.21.7        | [FlowTrails-1.0.0-mc1.21.6-1.21.8.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.6-1.21.8) |
+| 1.21.6        | [FlowTrails-1.0.0-mc1.21.6-1.21.8.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.6-1.21.8) |
+| 1.21.5        | [FlowTrails-1.0.0-mc1.21.5.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.5) |
+| 1.21.4        | [FlowTrails-1.0.0-mc1.21.4.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.4) |
+| 1.21.3        | [FlowTrails-1.0.0-mc1.21.2-1.21.3.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.2-1.21.3) |
+| 1.21.2        | [FlowTrails-1.0.0-mc1.21.2-1.21.3.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21.2-1.21.3) |
+| 1.21.1        | [FlowTrails-1.0.0-mc1.21-1.21.1.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21-1.21.1) |
+| 1.21          | [FlowTrails-1.0.0-mc1.21-1.21.1.jar](https://github.com/mesoooo/FlowTrails/releases/tag/v1.0.0-mc1.21-1.21.1) |
 | ..lower       | not supported                                                                                                                   |
 
 ## Features
